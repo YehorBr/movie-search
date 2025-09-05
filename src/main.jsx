@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { App } from "./BasicExample";
+import { App } from "./App";
 // import { App } from "./Layout";
 // import { App } from "./Parameters";
 // import { App } from "./Practice/app";
