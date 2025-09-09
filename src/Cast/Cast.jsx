@@ -19,6 +19,10 @@ export const Cast = () => {
     slidesToScroll: slidesToShow,
   };
 
+  if (!castData.length) {
+    return <p>No information yet.</p>;
+  }
+
   return (
     <>
       <Container>
