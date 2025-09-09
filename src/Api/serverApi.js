@@ -12,8 +12,8 @@ export const getTrending = () => {
    return fetch(`https://${BASE_URL}/trending/all/day`, options).then(res=> res.json())
 }
 
-export const searchMovie = () =>{
-   return fetch (`https://${BASE_URL}/search/movie`, options).then(res=> res.json())
+export const searchMovie = (query) =>{
+   return fetch (`https://${BASE_URL}/search/multi?query=${query}`, options).then(res=> res.json())
 }
 
 export const getMovieDetails = ({params}) =>{

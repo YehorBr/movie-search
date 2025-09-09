@@ -26,10 +26,41 @@ export const List = styled.ul`
 
 export const MainImg = styled.div`
   background-image: url(${props => props.img});
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 570px;
   border-radius: 0 0 15px 15px;
 
-  opacity: 0.7;
+  opacity: 0.6;
+`
+
+export const AddInfoList = styled.ul`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & li a{
+        background-color: #1a1a1a;
+        padding: 9px 18px;
+        border-radius: 12px;
+    }
+
+    & li:not(:last-child){
+        margin-right: 15px;
+    }
+
+    & li a:hover{
+        color: #fff;
+        background-color: rgb(255, 189, 87, 0.9);
+    }
+`
+
+export const Time = styled.p`
+        display: inline-block;
+        
+        background-color: #1a1a1a;
+        padding: 13px 16px;
+        margin-top: 0;
+        border-radius: 12px;
 `

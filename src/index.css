@@ -2,7 +2,7 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -23,10 +23,11 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  place-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    color: #fff;
 }
 
 h1 {
@@ -37,8 +38,13 @@ h1 {
 }
 
 #root {
-  width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+main {
+  flex: 1;
 }
 
 a {
@@ -49,8 +55,6 @@ a {
 }
 
 a:hover {
-  margin: 0;
-  padding: 0;
   color: #ffbd57
 }
 
@@ -59,3 +63,7 @@ ul {
   padding: 0;
   list-style: none;
 }
+
+p{
+    font-weight: 500;
+  }

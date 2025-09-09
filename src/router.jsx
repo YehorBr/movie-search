@@ -11,6 +11,7 @@ import { searchMovie } from "./Api/serverApi";
 import { getTrending } from "./Api/serverApi";
 import { HomePage } from "./Home/Home";
 import { PrivacyPolicy } from "./PrivacyPolicy/PrivacyPolicy";
+import { Terms } from "./TermsOfService/TermsOfService";
 
 export const routing = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const routing = createBrowserRouter([
       {
         path:"/privacy-policy",
         element: <PrivacyPolicy/>,
+      },
+      {
+        path:"terms-of-service",
+        element: <Terms/>
       },
       {
         path: "/movies/:type/:movieId",

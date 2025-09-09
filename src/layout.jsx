@@ -2,12 +2,13 @@ import { NavLink, Outlet } from "react-router-dom";
 import logo from "./images/logo.png";
 import {
   HeaderStl,
-  TextContainer,
-  NavLinkCont,
+  List,
+  HashLinkStl,
   NavLinkStl,
+  LogoLinkStl,
 } from "./Header/Header.styled";
 import { Container } from "./Container/Container";
-import { FooteStl } from "./Footer/Footer.styled";
+import { FooteStl, FooterContainer, FooterColumn, FooterLogo, FooterLink, FooterText, FooterLinksAndText } from "./Footer/Footer.styled";
 import { HashLink } from "react-router-hash-link";
 
 export const Layout = () => {
@@ -15,38 +16,50 @@ export const Layout = () => {
     <>
       <HeaderStl>
         <Container>
-          <TextContainer>
+          <List>
             <li>
-              <NavLinkStl to="/">
+              <LogoLinkStl to="/">
                 <img width="80" src={logo} alt="Logo" />
-              </NavLinkStl>
+              </LogoLinkStl>
             </li>
             <li>
               <NavLinkStl to="/">Home</NavLinkStl>
             </li>
             <li>
-              <HashLink smooth to="/#trending">Trendings</HashLink>
+              <HashLinkStl smooth to="/#trending">
+                Trendings
+              </HashLinkStl>
             </li>
             <li>
               <NavLinkStl to="/movies">Movies</NavLinkStl>
             </li>
-          </TextContainer>
+          </List>
         </Container>
       </HeaderStl>
       <main>
         <Outlet />
       </main>
       <FooteStl>
-        <ul>
-          <li>
-             <NavLinkStl to="/">
-                <img width="80" src={logo} alt="Logo" />
-              </NavLinkStl>
-          </li>
-          <li><NavLinkStl to="/privacy-policy">Privacy Policy</NavLinkStl></li>
-          <li></li>
-        </ul>
-      </FooteStl>
+  <Container>
+    <FooterContainer>
+      <FooterLogo>
+        <NavLink to="/"><img src={logo} alt="Logo" /></NavLink>
+      </FooterLogo>
+
+      <FooterLinksAndText>
+        <FooterColumn>
+          <FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
+          <FooterLink to="/terms-of-service">Terms of Service</FooterLink>
+        </FooterColumn>
+
+        <FooterColumn>
+          <FooterText>Email: support@moviehunt.com</FooterText>
+          <FooterText>© 2025 MovieHunt. All Rights Reserved.</FooterText>
+        </FooterColumn>
+      </FooterLinksAndText>
+    </FooterContainer>
+  </Container>
+</FooteStl>
     </>
   );
 };

@@ -9,18 +9,14 @@ export const HeroBgc = styled.div`
 
   background: linear-gradient(
     155deg,
-    rgb(255, 188, 87, 0.3) 40%,
-    rgb(255, 145, 77, 0.4) 100%
+    rgb(255, 188, 87, 0.7) 40%,
+    rgb(255, 145, 77, 0.8) 100%
   );
 `;
 
-export const HeroBg = styled.div`
-  position: absolute;
-  inset: 0;
-  background: url(${({ img }) => img}) ;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: -2; 
-  opacity: 0.15;
-`
+// export const HeroBg = styled.div`
+//   position: absolute;
+//   inset: 0;
+//   z-index: -2; 
+//   opacity: 0.2;
+// `

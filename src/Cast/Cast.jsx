@@ -33,7 +33,7 @@ export const Cast = () => {
   return (
     <>
       <Container>
-        <h2>Cast</h2>
+        <h2 style={{marginBottom:"25px"}}>Cast</h2>
         <Slider {...settings}>
           {castData.cast
             ?.filter((castItem, index, arr) => {
@@ -54,14 +54,14 @@ export const Cast = () => {
                       style={{ borderRadius: "10px" }}
                     />
                     <p>{castItem.original_name}</p>
-                    <p>{castItem.character}</p>
+                    <p style={{color: "rgb(255, 255, 255, 0.5)"}}>{castItem.character}</p>
                   </SliderItem>
                 );
               }
             })}
         </Slider>
 
-        <h2>Crew</h2>
+        <h2 style={{marginBottom:"25px"}}>Crew</h2>
         <Slider {...settings}>
           {castData.crew
             ?.filter((crewItem, index, arr) => {
@@ -82,7 +82,7 @@ export const Cast = () => {
                       style={{ borderRadius: "10px" }}
                     />
                     <p>{crewItem.original_name}</p>
-                    <p>{crewItem.known_for_department}</p>
+                    <p style={{color: "rgb(255, 255, 255, 0.5)"}}>{crewItem.known_for_department}</p>
                   </SliderItem>
                 );
               }
