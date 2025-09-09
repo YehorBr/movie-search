@@ -33,6 +33,18 @@ export const OrderedList = styled.ol`
   padding-left: 0;
   display: inline-block;
   text-align: center;
+
+  @media screen and (max-width: 767px) {
+    max-width: 320px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1199px) {
+    max-width: 768px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1200px;
+  }
 `;
 
 export const UnorderedList = styled.ul`

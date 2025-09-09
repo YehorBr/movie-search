@@ -21,7 +21,6 @@ export const Movies = () => {
     searchMovie(query).then((res) => setRes(res.results));
   };
 
-  console.log(filteredSearch);
 
   return (
     <Container>

@@ -10,8 +10,6 @@ export const MovieDetails = () => {
   const movie = useLoaderData();
   const { type } = useParams();
 
-    console.log(movie);
-
     useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [movie]);
