@@ -19,23 +19,19 @@ export const Cast = () => {
     slidesToScroll: slidesToShow,
   };
 
-  if (!castData.length) {
-    return <p>No information yet.</p>;
-  }
-
   return (
     <>
       <Container>
-        <h2 style={{marginBottom:"25px"}}>Cast</h2>
-        <SliderStl {...settings}>
-          {castData.cast
-            ?.filter((castItem, index, arr) => {
-              return (
-                index === arr.findIndex((arrItem) => arrItem.id === castItem.id)
-              );
-            })
-            .map((castItem) => {
-              if (castItem.profile_path !== null) {
+        <h2 style={{ marginBottom: "25px" }}>Cast</h2>
+        {castData.cast && castData.cast.length > 0 ? (
+          <SliderStl {...settings}>
+            {castData.cast
+              .filter(
+                (item, index, arr) =>
+                  index === arr.findIndex((i) => i.id === item.id)
+              )
+              .map((castItem) => {
+                if (!castItem.profile_path) return null;
                 return (
                   <SliderItem
                     key={castItem.credit_id}
@@ -47,23 +43,27 @@ export const Cast = () => {
                       style={{ borderRadius: "10px" }}
                     />
                     <p>{castItem.original_name}</p>
-                    <p style={{color: "rgb(255, 255, 255, 0.5)"}}>{castItem.character}</p>
+                    <p style={{ color: "rgba(255, 255, 255, 0.5)" }}>
+                      {castItem.character}
+                    </p>
                   </SliderItem>
                 );
-              }
-            })}
-        </SliderStl>
+              })}
+          </SliderStl>
+        ) : (
+          <p>No information yet.</p>
+        )}
 
-        <h2 style={{marginBottom:"25px"}}>Crew</h2>
-        <SliderStl {...settings}>
-          {castData.crew
-            ?.filter((crewItem, index, arr) => {
-              return (
-                index === arr.findIndex((arrItem) => arrItem.id === crewItem.id)
-              );
-            })
-            .map((crewItem) => {
-              if (crewItem.profile_path !== null) {
+        <h2 style={{ marginBottom: "25px" }}>Crew</h2>
+        {castData.crew && castData.crew.length > 0 ? (
+          <SliderStl {...settings}>
+            {castData.crew
+              .filter(
+                (item, index, arr) =>
+                  index === arr.findIndex((i) => i.id === item.id)
+              )
+              .map((crewItem) => {
+                if (!crewItem.profile_path) return null;
                 return (
                   <SliderItem
                     key={crewItem.credit_id}
@@ -75,12 +75,16 @@ export const Cast = () => {
                       style={{ borderRadius: "10px" }}
                     />
                     <p>{crewItem.original_name}</p>
-                    <p style={{color: "rgb(255, 255, 255, 0.5)"}}>{crewItem.known_for_department}</p>
+                    <p style={{ color: "rgba(255, 255, 255, 0.5)" }}>
+                      {crewItem.known_for_department}
+                    </p>
                   </SliderItem>
                 );
-              }
-            })}
-        </SliderStl>
+              })}
+          </SliderStl>
+        ) : (
+          <p>No information yet.</p>
+        )}
       </Container>
     </>
   );

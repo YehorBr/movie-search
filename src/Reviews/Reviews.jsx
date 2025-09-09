@@ -12,9 +12,9 @@ export const Reviews = () => {
   const reviewsData = useLoaderData();
   const revs = reviewsData.results;
 
-  if (!revs.length) {
-    return <p>No reviews yet.</p>;
-  }
+  if (!revs || revs.length === 0) {
+  return <p>No reviews yet.</p>;
+}
 
   return (
     <>
