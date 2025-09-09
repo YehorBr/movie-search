@@ -2,6 +2,7 @@ import { Link, Outlet, useLoaderData, useParams } from "react-router-dom";
 import { Container } from "../../Container/Container";
 import { List, MainImg, AddInfoList, Time } from "./MovieDetails.styled";
 import { useEffect } from "react";
+import { useWindowSize } from 'react-use';
 
 
 

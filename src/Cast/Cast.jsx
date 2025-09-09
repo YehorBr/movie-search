@@ -2,39 +2,28 @@ import { useLoaderData } from "react-router-dom";
 import { Container } from "../Container/Container";
 import { SliderItem } from "./Cast.styled";
 import Slider from "react-slick";
+import { useWindowSize } from "react-use";
 
 export const Cast = () => {
   const castData = useLoaderData();
+
+  const { width } = useWindowSize();
+
+  const slidesToShow = width >= 1200 ? 4 : width >= 768 ? 2 : 1;
 
   const settings = {
     dots: false,
     infinite: false,
     speed: 410,
-    slidesToShow: 5,
-    slidesToScroll: 2,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+    slidesToShow,
+    slidesToScroll: slidesToShow,
   };
 
   return (
     <>
       <Container>
         <h2 style={{marginBottom:"25px"}}>Cast</h2>
-        <Slider {...settings}>
+        <Slider {...settings} style={{width: "320px", marginLeft: "auto", marginRight: "auto" }}>
           {castData.cast
             ?.filter((castItem, index, arr) => {
               return (
@@ -62,7 +51,7 @@ export const Cast = () => {
         </Slider>
 
         <h2 style={{marginBottom:"25px"}}>Crew</h2>
-        <Slider {...settings}>
+        <Slider {...settings} style={{width: "320px", marginLeft: "auto", marginRight: "auto" }}>
           {castData.crew
             ?.filter((crewItem, index, arr) => {
               return (

@@ -3,39 +3,27 @@ import { SliderItem, ImgStl, ImgHover } from "./Home.styled";
 import Slider from "react-slick";
 import { Hero } from "../Hero/Hero";
 import { Container } from "../Container/Container";
+import { useWindowSize } from 'react-use';
 
 export const HomePage = () => {
   const trendingData = useLoaderData();
   const trendingMovies = trendingData.results;
 
-  const filteredTrendingMovie = trendingMovies.filter((movie) => {
-    return movie.media_type !== "person";
-  });
+  const filteredTrendingMovie = trendingMovies.filter(
+    (movie) => movie.media_type !== "person"
+  );
+
+  const { width } = useWindowSize();
+
+  const slidesToShow = width >= 1200 ? 4 : width >= 768 ? 2 : 1;
 
   const settings = {
     dots: false,
     infinite: false,
     speed: 410,
-    slidesToShow: 4,
-    slidesToScroll: 2,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+    slidesToShow,
+    slidesToScroll: slidesToShow,
   };
-
   return (
     <>
       <Hero />
@@ -46,7 +34,7 @@ export const HomePage = () => {
 
           <Slider
             {...settings}
-            style={{ marginTop: "45px", marginBottom: "40px" }}
+            style={{ marginTop: "45px", marginBottom: "40px", width: "320px", marginLeft: "auto", marginRight: "auto" }}
           >
             {filteredTrendingMovie.map((trendingMovie) => {
               return (
@@ -55,7 +43,7 @@ export const HomePage = () => {
                     to={`/movies/${trendingMovie.media_type}/${trendingMovie.id}`}
                   >
                     <ImgStl
-                      src={`https://image.tmdb.org/t/p/w300${trendingMovie.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w400${trendingMovie.poster_path}`}
                       alt=""
                     />
                     <p>{trendingMovie.title || trendingMovie.name}</p>
