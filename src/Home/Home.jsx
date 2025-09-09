@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { SliderItem, ImgStl, ImgHover } from "./Home.styled";
+import { SliderItem, ImgStl, ImgHover,SliderStl } from "./Home.styled";
 import Slider from "react-slick";
 import { Hero } from "../Hero/Hero";
 import { Container } from "../Container/Container";
@@ -20,7 +20,7 @@ export const HomePage = () => {
   const settings = {
     dots: false,
     infinite: false,
-    speed: 410,
+    speed: 700,
     slidesToShow,
     slidesToScroll: slidesToShow,
   };
@@ -32,9 +32,8 @@ export const HomePage = () => {
         <section id="trending" >
           <h2>Trendings</h2>
 
-          <Slider
+          <SliderStl
             {...settings}
-            style={{ marginTop: "45px", marginBottom: "40px", width: "320px", marginLeft: "auto", marginRight: "auto" }}
           >
             {filteredTrendingMovie.map((trendingMovie) => {
               return (
@@ -52,7 +51,7 @@ export const HomePage = () => {
                 </SliderItem>
               );
             })}
-          </Slider>
+          </SliderStl>
         </section>
       </Container>
     </>

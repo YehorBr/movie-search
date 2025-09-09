@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { Container } from "../Container/Container";
-import { SliderItem } from "./Cast.styled";
+import { SliderItem, SliderStl } from "./Cast.styled";
 import Slider from "react-slick";
 import { useWindowSize } from "react-use";
 
@@ -9,12 +9,12 @@ export const Cast = () => {
 
   const { width } = useWindowSize();
 
-  const slidesToShow = width >= 1200 ? 4 : width >= 768 ? 2 : 1;
+  const slidesToShow = width >= 1200 ? 4 : width >= 768 ? 3 : 1;
 
   const settings = {
     dots: false,
     infinite: false,
-    speed: 410,
+    speed: 700,
     slidesToShow,
     slidesToScroll: slidesToShow,
   };
@@ -23,7 +23,7 @@ export const Cast = () => {
     <>
       <Container>
         <h2 style={{marginBottom:"25px"}}>Cast</h2>
-        <Slider {...settings} style={{width: "320px", marginLeft: "auto", marginRight: "auto" }}>
+        <SliderStl {...settings}>
           {castData.cast
             ?.filter((castItem, index, arr) => {
               return (
@@ -48,10 +48,10 @@ export const Cast = () => {
                 );
               }
             })}
-        </Slider>
+        </SliderStl>
 
         <h2 style={{marginBottom:"25px"}}>Crew</h2>
-        <Slider {...settings} style={{width: "320px", marginLeft: "auto", marginRight: "auto" }}>
+        <SliderStl {...settings}>
           {castData.crew
             ?.filter((crewItem, index, arr) => {
               return (
@@ -76,7 +76,7 @@ export const Cast = () => {
                 );
               }
             })}
-        </Slider>
+        </SliderStl>
       </Container>
     </>
   );
